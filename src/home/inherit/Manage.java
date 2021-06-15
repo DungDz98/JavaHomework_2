@@ -3,29 +3,24 @@ package home.inherit;
 import java.util.Scanner;
 
 class Manage {
-//    public static NhanVien[] addNhanVien(NhanVien[] arr) {
-//        Scanner sc = new Scanner(System.in);
-//        boolean flag = true;
-//        do {
-//            System.out.println("Ban muon them Nhan vien Part time hay Full time?");
-//            System.out.println("1. Nhan vien Part Time");
-//            System.out.println("2. Nhan vien Full Time");
-//            System.out.println("3. Exit");
-//            System.out.println("Enter your choice");
-//            int choice = sc.nextInt();
-//            switch (choice) {
-//                case 1:
-//                    addNhanVienPartTime(arr);
-//                    break;
-//                case 2:
-//                    addNhanVienFullTime(arr);
-//                    break;
-//                case 3:
-//                    flag = false;
-//                    return arr;
-//            }
-//        } while (flag);
-//    }
+    public static NhanVien[] addNhanVien(NhanVien[] arr) {
+        Scanner sc = new Scanner(System.in);
+        do {
+            showSubMenu();
+            int choice = sc.nextInt();
+            if (choice == 3) {
+                return arr;
+            }
+            switch (choice) {
+                case 1:
+                    arr = addNhanVienPartTime(arr);
+                    break;
+                case 2:
+                    arr = addNhanVienFullTime(arr);
+                    break;
+            }
+        } while (true);
+    }
 
     public static NhanVien[] addNhanVienPartTime(NhanVien[] arr) {
         Scanner sc = new Scanner(System.in);
@@ -101,5 +96,22 @@ class Manage {
             }
         }
 
+    }
+
+    public static void showMenu() {
+        System.out.println("Menu");
+        System.out.println("1. Add ");
+        System.out.println("2. Display");
+        System.out.println("3. Display condition");
+        System.out.println("4. Exit");
+        System.out.println("Enter your choice: ");
+    }
+
+    public static void showSubMenu() {
+        System.out.println("Ban muon them Nhan vien Part time hay Full time?");
+        System.out.println("1. Nhan vien Part Time");
+        System.out.println("2. Nhan vien Full Time");
+        System.out.println("3. Exit");
+        System.out.println("Enter your choice");
     }
 }
